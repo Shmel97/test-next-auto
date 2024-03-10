@@ -1,0 +1,75 @@
+.filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px;
+	align-items: center;
+
+	select,
+	input,
+	a,
+	button {
+		padding: 10px;
+		font-size: 18px;
+		border: 1px solid white;
+		border-radius: 4px;
+		transition: border-color 0.3s ease;
+	}
+
+	button,
+	a {
+		background-color: #007bff;
+		color: #fff;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			background-color: #0056b3;
+		}
+	}
+}
+
+.carsList {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 20px;
+	padding: 20px;
+
+	@media (max-width: 600px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.card {
+	border: 1px solid white;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.1s ease-in;
+	cursor: pointer;
+
+	&:hover {
+		box-shadow: 0 3px 10px 3px rgba(255, 255, 255, 0.2);
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	&__description {
+		padding: 16px;
+	}
+
+	&__title {
+		margin: 0;
+		color: white;
+		font-size: 18px;
+	}
+
+	&__paragraph {
+		margin: 8px 0 0;
+		color: white;
+		font-size: 14px;
+	}
+}

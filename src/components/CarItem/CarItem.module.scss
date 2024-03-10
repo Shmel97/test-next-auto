@@ -1,0 +1,42 @@
+.item {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+
+	&__image {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+	}
+
+	&__title {
+		margin-top: 20px;
+		font-size: 24px;
+		font-weight: bold;
+		color: white;
+	}
+
+	&__detail {
+		margin-top: 10px;
+	}
+
+	&__detail p {
+		margin: 5px 0;
+		font-size: 16px;
+	}
+
+	&__price {
+		color: red;
+		font-weight: bold;
+	}
+
+	&__transmission {
+		margin-top: 10px;
+		font-style: italic;
+	}
+
+	&__range {
+		margin-top: 10px;
+	}
+}
