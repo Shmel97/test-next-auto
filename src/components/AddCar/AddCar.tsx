@@ -2,10 +2,12 @@
 
 import { CarFormData } from '@/shared/types/car';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './AddCar.module.scss';
 
 export const AddCar = () => {
+	const router = useRouter();
 	const [formData, setFormData] = useState<CarFormData>({
 		brand: '',
 		model: '',
@@ -40,6 +42,8 @@ export const AddCar = () => {
 			image: '',
 			engineType: '',
 		});
+		router.push('/');
+		router.refresh();
 	};
 
 	return (
@@ -85,7 +89,7 @@ export const AddCar = () => {
 				name='image'
 				value={formData.image}
 				onChange={handleInputChange}
-				placeholder='Ссылка на картинку с wallpaperscraft.ru'
+				placeholder='Ссылка с wallpaperscraft.ru картинки'
 			/>
 			<button type='submit'>Добавить авто</button>
 		</form>

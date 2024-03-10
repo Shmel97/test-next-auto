@@ -1,5 +1,8 @@
+'use client';
+
 import { Car } from '@/shared/types/car';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import styles from './CarItem.module.scss';
 
 type CarItemProps = {
@@ -7,6 +10,7 @@ type CarItemProps = {
 };
 
 export const CarItem = ({ data }: CarItemProps) => {
+	const router = useRouter();
 	return (
 		<div className={styles.item}>
 			<Image
@@ -34,6 +38,13 @@ export const CarItem = ({ data }: CarItemProps) => {
 					</p>
 				)}
 			</div>
+			<button
+				onClick={() => {
+					router.back();
+				}}
+			>
+				Назад
+			</button>
 		</div>
 	);
 };

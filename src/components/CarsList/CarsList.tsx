@@ -1,16 +1,18 @@
 'use client';
 
 import { Car } from '@/shared/types/car';
-import Image from 'next/image';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { FC, useMemo, useState } from 'react';
 import styles from './CarsList.module.scss';
+import { ItemCar } from './ItemCar/ItemCar';
 
 type CarsListProps = {
 	data: Car[];
 };
 
 export const CarsList: FC<CarsListProps> = ({ data }) => {
+	const session = useSession();
 	const [sortKey, setSortKey] = useState<'year' | 'price'>('year');
 	const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 	const [filterBrand, setFilterBrand] = useState('');
@@ -64,28 +66,19 @@ export const CarsList: FC<CarsListProps> = ({ data }) => {
 					value={filterColor}
 					onChange={e => setFilterColor(e.target.value)}
 				/>
-				<Link href={'/add-car'}>Добавить авто</Link>
+				{session?.data ? (
+					<Link href='#' onClick={() => signOut({ callbackUrl: '/' })}>
+						Выйти
+					</Link>
+				) : (
+					<Link href='api/auth/signin'>Авторизоваться</Link>
+				)}
+				{session?.data && <Link href={'/add-car'}>Добавить авто</Link>}
 			</div>
 
 			<div className={styles.carsList}>
 				{sortedAndFilteredData.map(car => (
-					<Link key={car.id} href={`/car/${car.id}`} className={styles.card}>
-						<Image
-							className={styles.card__image}
-							src={car.image}
-							alt={`${car.brand} ${car.model}`}
-							width={180}
-							height={100}
-						/>
-						<div className={styles.card__description}>
-							<h2 className={styles.card__title}>
-								{car.brand} {car.model}
-							</h2>
-							<p className={styles.card__paragraph}>
-								{car.year} - {car.color} - ${car.price}
-							</p>
-						</div>
-					</Link>
+					<ItemCar key={car.id} data={car} />
 				))}
 			</div>
 		</>

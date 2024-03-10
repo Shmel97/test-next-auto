@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { FC } from 'react';
-import styles from './Pagination.module.scss'
+import { FC } from 'react';
+import styles from './Pagination.module.scss';
 
 type PaginationProps = {
 	hasNextPage: boolean;
@@ -27,11 +27,9 @@ export const Pagination: FC<PaginationProps> = ({
 			>
 				Назад
 			</button>
-			<div className={styles.pagination__info}>
-				{page} / {Math.ceil(10 / Number(per_page))}
-			</div>
+			<div className={styles.pagination__info}>{page}</div>
 			<button
-			disabled={!hasNextPage}
+				disabled={!hasNextPage}
 				onClick={() => {
 					router.push(`/?page=${Number(page) + 1}&per_page=${per_page}`);
 				}}

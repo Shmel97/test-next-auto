@@ -15,11 +15,10 @@ export default async function Home({
 }) {
 	const page = searchParams['page'] ?? '1';
 	const per_page = searchParams['per_page'] ?? '5';
-
 	const start = (Number(page) - 1) * Number(per_page);
 	const end = start + Number(per_page);
 	const res = await getData();
-	const entries = res.slice(start, end);
+	const entries = await res.slice(start, end);
 	return (
 		<main>
 			<CarsList data={entries} />
