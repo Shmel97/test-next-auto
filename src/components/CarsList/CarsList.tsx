@@ -6,8 +6,8 @@ import { Input } from '@/shared/UI/Input/Input';
 import { Car } from '@/shared/types/car';
 import { signOut, useSession } from 'next-auth/react';
 import { FC, useMemo, useState } from 'react';
-import styles from './CarsList.module.scss';
 import { ItemCar } from './ItemCar/ItemCar';
+import styles from './CarsList.module.scss';
 
 type CarsListProps = {
 	data: Car[];
@@ -70,7 +70,12 @@ export const CarsList: FC<CarsListProps> = ({ data }) => {
 				/>
 				{session?.data && <AppLink href={'/add-car'}>Добавить авто</AppLink>}
 				{session?.data ? (
-					<AppLink href='#' onClick={() => signOut({ callbackUrl: '/' })}>
+					<AppLink
+						href='#'
+						onClick={() => {
+							signOut({ callbackUrl: '/' });
+						}}
+					>
 						Выйти
 					</AppLink>
 				) : (

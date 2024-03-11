@@ -12,9 +12,9 @@ type AppLinkProps = {
 	onClick?: () => void;
 };
 
-export const AppLink: FC<AppLinkProps> = ({ children, href, className }) => {
+export const AppLink: FC<AppLinkProps> = ({ children, href, className, onClick }) => {
 	return (
-		<Link href={href} className={clsx(styles.link, className)}>
+		<Link href={href} onClick={onClick} className={clsx(styles.link, className)}>
 			{children}
 		</Link>
 	);
