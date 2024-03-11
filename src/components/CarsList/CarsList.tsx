@@ -1,8 +1,10 @@
 'use client';
 
+import { AppLink } from '@/shared/UI/AppLink/AppLink';
+import { Button } from '@/shared/UI/Button/Button';
+import { Input } from '@/shared/UI/Input/Input';
 import { Car } from '@/shared/types/car';
 import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
 import { FC, useMemo, useState } from 'react';
 import styles from './CarsList.module.scss';
 import { ItemCar } from './ItemCar/ItemCar';
@@ -47,33 +49,33 @@ export const CarsList: FC<CarsListProps> = ({ data }) => {
 					<option value='price'>Цена</option>
 				</select>
 				{sortKey === 'price' && (
-					<button onClick={handleSortOrderToggle}>
+					<Button onClick={handleSortOrderToggle}>
 						{sortOrder === 'asc' ? 'Сначала дорогие' : 'Сначала дешевые'}
-					</button>
+					</Button>
 				)}
 				{sortKey === 'year' && (
-					<button onClick={handleSortOrderToggle}>
+					<Button onClick={handleSortOrderToggle}>
 						{sortOrder === 'asc' ? 'Сначала новые' : 'Сначала старые'}
-					</button>
+					</Button>
 				)}
-				<input
+				<Input
 					placeholder='Введите бренд...'
 					value={filterBrand}
-					onChange={e => setFilterBrand(e.target.value)}
+					onInputChange={e => setFilterBrand(e.target.value)}
 				/>
-				<input
+				<Input
 					placeholder='Введите цвет...'
 					value={filterColor}
-					onChange={e => setFilterColor(e.target.value)}
+					onInputChange={e => setFilterColor(e.target.value)}
 				/>
+				{session?.data && <AppLink href={'/add-car'}>Добавить авто</AppLink>}
 				{session?.data ? (
-					<Link href='#' onClick={() => signOut({ callbackUrl: '/' })}>
+					<AppLink href='#' onClick={() => signOut({ callbackUrl: '/' })}>
 						Выйти
-					</Link>
+					</AppLink>
 				) : (
-					<Link href='api/auth/signin'>Авторизоваться</Link>
+					<AppLink href='api/auth/signin'>Авторизоваться</AppLink>
 				)}
-				{session?.data && <Link href={'/add-car'}>Добавить авто</Link>}
 			</div>
 
 			<div className={styles.carsList}>

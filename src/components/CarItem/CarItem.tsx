@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/shared/UI/Button/Button';
 import { Car } from '@/shared/types/car';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -38,13 +39,13 @@ export const CarItem = ({ data }: CarItemProps) => {
 					</p>
 				)}
 			</div>
-			<button
+			<Button
 				onClick={() => {
 					router.back();
 				}}
 			>
 				Назад
-			</button>
+			</Button>
 		</div>
 	);
 };

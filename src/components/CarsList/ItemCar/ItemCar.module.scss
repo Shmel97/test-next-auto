@@ -1,4 +1,7 @@
 .card {
+	display: inline;
+	padding: 0;
+	background: var(--dark);
 	border: 1px solid white;
 	border-radius: 8px;
 	overflow: hidden;

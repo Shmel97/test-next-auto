@@ -2,27 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 1rem;
-
-	button {
-		background-color: var(--blue);
-		color: white;
-		padding: 10px;
-		font-size: 18px;
-		border: 1px solid white;
-		border-radius: 4px;
-		transition: border-color 0.3s ease;
-		cursor: pointer;
-
-		&:hover {
-			background-color: var(--blue-hover);
-		}
-
-		&:disabled {
-			background-color: #a0aec0;
-			cursor: default;
-		}
-	}
+	gap: 20px;
 
 	&__info {
 		font-size: 18px;

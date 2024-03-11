@@ -12,6 +12,6 @@ export type Car = {
 };
 
 export type CarFormData = Omit<Car, 'id' | 'year' | 'price'> & {
-  year: string;
-  price: string; 
+	year: string;
+	price: string;
 };

@@ -1,6 +1,6 @@
+import { AppLink } from '@/shared/UI/AppLink/AppLink';
 import { Car } from '@/shared/types/car';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 import styles from './ItemCar.module.scss';
 
@@ -10,7 +10,7 @@ type ItemCarProps = {
 
 export const ItemCar: FC<ItemCarProps> = ({ data }) => {
 	return (
-		<Link key={data.id} href={`/car/${data.id}`} className={styles.card}>
+		<AppLink key={data.id} href={`/car/${data.id}`} className={styles.card}>
 			<Image
 				className={styles.card__image}
 				src={data.image}
@@ -26,6 +26,6 @@ export const ItemCar: FC<ItemCarProps> = ({ data }) => {
 					{data.year} - {data.color} - ${data.price}
 				</p>
 			</div>
-		</Link>
+		</AppLink>
 	);
 };

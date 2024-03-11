@@ -1,0 +1,16 @@
+.input {
+	padding: 10px;
+	font-size: 18px;
+	border: 1px solid white;
+	border-radius: 4px;
+	transition: border-color 0.3s ease;
+
+	&::placeholder {
+		font-family: var(--font-manrope);
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 20px;
+		color: var(--grey);
+	}
+}

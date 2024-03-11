@@ -1,5 +1,8 @@
 'use client';
 
+import { AppLink } from '@/shared/UI/AppLink/AppLink';
+import { Button } from '@/shared/UI/Button/Button';
+import { Input } from '@/shared/UI/Input/Input';
 import { CarFormData } from '@/shared/types/car';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -48,50 +51,51 @@ export const AddCar = () => {
 
 	return (
 		<form className={styles.addCarForm} onSubmit={handleSubmit}>
-			<input
+			<Input
 				name='brand'
 				value={formData.brand}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Бренд авто'
 				required
 			/>
-			<input
+			<Input
 				name='model'
 				value={formData.model}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Модель авто'
 				required
 			/>
-			<input
+			<Input
 				name='year'
 				type='number'
 				value={formData.year}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Год выпуска'
 				required
 			/>
-			<input
+			<Input
 				name='color'
 				value={formData.color}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Цвет'
 				required
 			/>
-			<input
+			<Input
 				name='price'
 				type='number'
 				value={formData.price}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Цена'
 				required
 			/>
-			<input
+			<Input
 				name='image'
 				value={formData.image}
-				onChange={handleInputChange}
+				onInputChange={handleInputChange}
 				placeholder='Ссылка с wallpaperscraft.ru картинки'
 			/>
-			<button type='submit'>Добавить авто</button>
+			<Button type='submit'>Добавить авто</Button>
+			<AppLink href='/'>Назад</AppLink>
 		</form>
 	);
 };

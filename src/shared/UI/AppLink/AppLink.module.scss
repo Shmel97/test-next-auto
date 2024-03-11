@@ -1,0 +1,25 @@
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	font-size: 18px;
+	border: 1px solid white;
+	border-radius: 4px;
+	transition: border-color 0.3s ease;
+
+	font-family: var(--font-manrope);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+
+	background-color: var(--blue);
+	color: var(--white);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: var(--blue-hover);
+	}
+}
